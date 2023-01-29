@@ -5,9 +5,9 @@ class PageTwo extends HTMLElement {
         super();
         this.attachShadow({mode: "open"});
 
-        this.shadowRoot.append(document.getElementById("two").content.cloneNode(true));
+        this.shadowRoot.append(document.getElementById("page-two-tpl").content.cloneNode(true));
     }
 }
-customElements.define("comp-two", PageTwo);
+customElements.define("page-two", PageTwo);
 
 router.addRoute(["/two", PageTwo]);

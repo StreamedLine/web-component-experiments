@@ -7,29 +7,43 @@
     <title>Custom Router Example</title>
 </head>
 <body>
-    <button is="nav-button" to="/one">one</button>
-    <button is="nav-button" to="/two">two</button>
-    
     <root-component></root-component>
     
-
-    <template id="root">
+    <template id="layout-tpl">
+        <style>
+            :host {
+                display: block;
+                margin: 20px;
+            }
+        </style>
         <slot name="header"></slot>
         <slot></slot>
         <slot name="footer"></slot>
     </template>
 
+    <template id="header-nav-tpl">
+        <slot></slot>
+        <button is="nav-button" to="/one">one</button>
+        <button is="nav-button" to="/two">two</button>
+    </template>
 
-    <template id="one">
-        <header slot="header"><h1>Main Header</h1></header>
+    <template id="page-one-tpl">
+        <style>
+            main {margin: 20px 0;}
+        </style>
+
+        <header-nav slot="header"><h1>Page One</h1></header-nav>
         <main>
             main content one
         </main>
         <footer slot="footer">this is the footer</footer>
     </template>
 
-    <template id="two">
-        <header slot="header"><h1>Main Header</h1></header>
+    <template id="page-two-tpl">
+        <style>
+            main {margin: 20px 0;}
+        </style>
+        <header-nav slot="header"><h1>Page Two</h1></header-nav>
         <main>
             main content two
         </main>

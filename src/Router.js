@@ -4,6 +4,21 @@ class Router {
 
         // listen to navigation change event (call this.nav)
         addEventListener('popstate', e => this.nav(e.state.path));
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            this.nav(location.pathname);
+        });
+
+        const notFound = document.createElement("div");
+        
+        notFound.innerHTML = `
+        <header-nav slot="header"><h1>404 Not Found</h1></header-nav>
+        <main>
+            We're sorry
+        </main>
+        <footer slot="footer">this is the footer</footer>
+        `
+        this.notFoundRoute = notFound;
     }
 
     addRoute(route) {
@@ -28,7 +43,12 @@ class Router {
         // find first match within this.routes[i][0] withcomponent that matches this.routes[i][1]
         const newRoute = this.routes.find(route => regex.test(route[0]));
 
-        // insert component into #root
+        if(!newRoute) {
+            this.root.shadowRoot.replaceChildren(this.notFoundRoute); 
+            return;
+        }
+
+        // insert component into root-component
         this.root.shadowRoot.replaceChildren(new newRoute[1]); 
     }
 
