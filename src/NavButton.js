@@ -1,15 +1,16 @@
 import { nav } from "./Router.js";
 
-customElements.define("nav-button", class NavButton extends HTMLButtonElement {
+customElements.define("nav-button", class NavButton extends HTMLElement {
     constructor() {
         super();
-        this.nav = nav;
+        this.attachShadow({mode: "open"});
+        this.shadowRoot.append(document.getElementById("nav-button-tpl").content.cloneNode(true));
     }
     
     connectedCallback() {
-        this.addEventListener("click", () => {
-            this.nav(this.getAttribute("to"));
+        this.shadowRoot.addEventListener("click", () => {
+            nav(this.getAttribute("to"));
         });
     }
 
-}, {extends: "button"});
+});

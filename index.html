@@ -23,8 +23,12 @@
 
     <template id="header-nav-tpl">
         <slot></slot>
-        <button is="nav-button" to="/one">one</button>
-        <button is="nav-button" to="/two">two</button>
+        <nav-button to="/one">one</nav-button>
+        <nav-button to="/two">two</nav-button>
+    </template>
+
+    <template id="nav-button-tpl">
+        <button><slot></slot></button>
     </template>
 
     <template id="page-one-tpl">
