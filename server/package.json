@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/StreamedLine/web-component-experiments/issues"
   },
-  "homepage": "https://github.com/StreamedLine/web-component-experiments#readme"
+  "homepage": "https://github.com/StreamedLine/web-component-experiments#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
