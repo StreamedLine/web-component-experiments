@@ -9,51 +9,7 @@
 <body>
     <root-component></root-component>
     
-    <template id="layout-tpl">
-        <style>
-            :host {
-                display: block;
-                margin: 20px;
-            }
-        </style>
-        <slot name="header"></slot>
-        <slot></slot>
-        <slot name="footer"></slot>
-    </template>
-
-    <template id="header-nav-tpl">
-        <slot></slot>
-        <nav-button to="/one">one</nav-button>
-        <nav-button to="/two">two</nav-button>
-    </template>
-
-    <template id="nav-button-tpl">
-        <button><slot></slot></button>
-    </template>
-
-    <template id="page-one-tpl">
-        <style>
-            main {margin: 20px 0;}
-        </style>
-
-        <header-nav slot="header"><h1>Page One</h1></header-nav>
-        <main>
-            main content one
-        </main>
-        <footer slot="footer">this is the footer</footer>
-    </template>
-
-    <template id="page-two-tpl">
-        <style>
-            main {margin: 20px 0;}
-        </style>
-        <header-nav slot="header"><h1>Page Two</h1></header-nav>
-        <main>
-            main content two
-        </main>
-        <footer slot="footer">this is the footer</footer>
-    </template>
-    
+    <!-- TEMPLATES_PLACEHOLDER -->
     
     <script src="./src/Router.js" type="module"></script>
     <script src="./src/NavButton.js" type="module"></script>
